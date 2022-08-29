@@ -21,12 +21,12 @@
 		<span style="color: red;">{{ error }}</span>
 		{% endfor %}
 
-		<p>{{ rorm.email.labell }} {{ form.email(placeholder='メールアドレス') }}</p>
+		<p>{{ form.email.labell }} {{ form.email(placeholder='メールアドレス') }}</p>
 		{% for error in form.email.errors %}
 		<span style="color: red;">{{ error }}</span>
 		{% endfor %}
 
-		<p>{{ rorm.password.labell }} {{ form.password(placeholder='パスワード') }}</p>
+		<p>{{ form.password.labell }} {{ form.password(placeholder='パスワード') }}</p>
 		{% for error in form.password.errors %}
 		<span style="color: red;">{{ error }}</span>
 		{% endfor %}
