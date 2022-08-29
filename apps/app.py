@@ -11,11 +11,11 @@ def create_app():
 	app = Flask(__name__)
 
 	app.config.from_mapping(
-		SECRET_KEY='2AZSMss3p5QPbcY2hBs',
-		SQLALCHEMY_DATABASE_URI=f'postgresql://postgres:jU3E|DaQ@localhost:5432/auto_irrigation',
-		SQLALCHEMY_TRACK_MODIFICATIONS=False,
-		SQLALCHEMY_ECHO=True,
-		WTF_CSRF_SECRET_KEY='AuwzyszU5sugKN7KZs6f',
+		SECRET_KEY = os.environ.get('SECRET_KEY'),
+		SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI'),
+		SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('SQLALCHEMY_TRACK_MODIFICATIONS'),
+		SQLALCHEMY_ECHO = os.environ.get('SQLALCHEMY_ECHO'),
+		WTF_CSRF_SECRET_KEY = os.environ.get('WTF_CSRF_SECRET_KEY'),
 	)
 
 	csrf.init_app(app)
@@ -24,6 +24,9 @@ def create_app():
 
 	from apps.crud import views as crud_views
 	app.register_blueprint(crud_views.crud, url_prefix='/crud')
+
+	from apps.auth import views as auth_views
+	app.register_blueprint(auth_views.auth, url_prefix='/auth')
 
 	return app
 
