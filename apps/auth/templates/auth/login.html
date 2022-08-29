@@ -8,7 +8,7 @@
 	method="post"
 	novalidate
 	>
-	{% for messaqge in get_flashed_messages() %}
+	{% for message in get_flashed_messages() %}
 	<p style="color: red;">{{ message }}</p>
 	{% endfor %}
 	{{ form.csrf_token }}

@@ -31,7 +31,7 @@ class LoginForm(FlaskForm):
 		'メールアドレス',
 		validators=[
 			DataRequired('メールアドレスは必須です。'),
-			Email('メールアドレスの形式d4エ入力してください。')
+			Email('メールアドレスの形式で入力してください。')
 		],
 	)
 	password = PasswordField(
